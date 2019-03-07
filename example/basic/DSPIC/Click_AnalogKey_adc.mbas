@@ -1,0 +1,25 @@
+module Click_AnalogKey_adc
+
+include Click_AnalogKey_types
+sub procedure analogkey_adcInit() 
+sub procedure analogkey_adcSetInputChannel() 
+sub function  analogkey_adcRead() as uint32_t 
+
+implements
+
+sub procedure analogkey_adcInit() 
+    ADC1_Init_Advanced(_ADC_12bit, _ADC_INTERNAL_VREFL or _ADC_INTERNAL_VREFH) 
+end sub
+
+sub procedure analogkey_adcSetInputChannel() 
+end sub
+
+sub function  analogkey_adcRead() as uint32_t 
+dim
+    adcData as uint32_t 
+
+    adcData = ADC1_Read(8) 
+    result = adcData 
+end sub
+
+end.

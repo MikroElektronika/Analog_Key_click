@@ -1,0 +1,5 @@
+unit Click_AnalogKey_config;
+
+uses Click_AnalogKey_types;
+
+end.

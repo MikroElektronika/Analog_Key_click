@@ -1,0 +1,80 @@
+{
+Example for AnalogKey Click
+
+    Date          : dec 2018.
+    Author        : Katarina Perendic
+
+Test configuration CEC :
+    
+    MCU              : CEC1702
+    Dev. Board       : Clicker 2 for CEC1702
+    ARM Compiler ver : v6.0.0.0
+
+---
+
+Description :
+
+The application is composed of three sections :
+
+- System Initialization - LOG initialization for displaying data on USB UART
+- Application Initialization - Initializes ADC init
+- Application Task - (code snippet) - Reads ADC value and detects which button is pressed based on that value.
+
+}
+program Click_AnalogKey_CEC;
+
+uses Click_AnalogKey_types, Click_AnalogKey_config, Click_AnalogKey_adc;
+
+procedure systemInit(); 
+begin
+    mikrobus_logInit(_MIKROBUS2, 9600); 
+    mikrobus_logWrite('--- System Init ---', _LOG_LINE); 
+    Delay_100ms(); 
+end;
+
+procedure applicationInit(); 
+begin
+    analogkey_gpioDriverInit(T_ANALOGKEY_P(@_MIKROBUS1_GPIO)); 
+    analogkey_setResolution(_ANALOGKEY_ADC_RESOLUTION_10bit); 
+    analogkey_adcSetInputChannel(); 
+    analogkey_adcInit(); 
+    Delay_100ms(); 
+    mikrobus_logWrite('Press the button :D', _LOG_LINE); 
+end;
+
+procedure applicationTask(); 
+var
+    ADC_value : uint16_t; 
+    isKey : uint8_t; 
+    demoText : array[50] of char; 
+    cnt : uint8_t; 
+    sumValue : uint16_t; 
+begin
+    sumValue := 0;
+
+    for cnt := 0 to 5 - 1 do 
+    begin
+        ADC_value := analogkey_adcRead(); 
+        sumValue := sumValue + ADC_value; 
+        Delay_10ms(); 
+    end;
+    ADC_value := sumValue / 5; 
+    isKey := analogkey_getKey(ADC_value); 
+    if (isKey <> _ANALOGKEY_NO_TOUCH) then 
+    begin
+        IntToStr(isKey, demoText); 
+        mikrobus_logWrite('Pressed the button : ', _LOG_TEXT); 
+        mikrobus_logWrite(demoText, _LOG_LINE); 
+    end; 
+    Delay_ms(300); 
+end;
+
+begin
+
+    systemInit(); 
+    applicationInit(); 
+    while (1) do 
+    begin 
+        applicationTask(); 
+    end;
+end.

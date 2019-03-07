@@ -1,0 +1,4 @@
+module Click_AnalogKey_config
+
+include Click_AnalogKey_types
+end.

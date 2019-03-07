@@ -1,0 +1,29 @@
+unit Click_AnalogKey_adc;
+
+uses Click_AnalogKey_types;
+
+procedure analogkey_adcInit(); 
+procedure analogkey_adcSetInputChannel(); 
+function  analogkey_adcRead() :  uint32_t; 
+
+implementation
+
+procedure analogkey_adcInit(); 
+begin
+    ADC_Init(); 
+end;
+
+procedure analogkey_adcSetInputChannel(); 
+begin
+    ADC_Set_Input_Channel(_ADC_CHANNEL_15); 
+end;
+
+function  analogkey_adcRead() :  uint32_t; 
+var
+    adcData : uint32_t; 
+begin
+    adcData := ADC_Read(15); 
+    result := adcData; 
+end;
+
+end.

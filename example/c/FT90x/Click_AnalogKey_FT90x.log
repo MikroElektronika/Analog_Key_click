@@ -1,0 +1,15 @@
+0	1	mikroCFT90x.exe -MSF -DBG -p FT900 -BIN -DL -SSA -O11111114 -fo100 -N"D:\Clicks_git\A\analog-key-click\SW\example\c\FT90x\Click_AnalogKey_FT90x.mcpf9" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for FT90x\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for FT90x\Uses\" -SP"D:\Clicks_git\A\analog-key-click\SW\example\c\FT90x\" -SP"D:\Clicks_git\A\analog-key-click\SW\library\HAL\" -SP"D:\Clicks_git\A\analog-key-click\SW\library\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for FT90x\Packages\mikroBUS Board Definition API\Uses\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for FT90x\Uses\" -IP"D:\Clicks_git\A\analog-key-click\SW\example\c\FT90x\" -IP"D:\Clicks_git\A\analog-key-click\SW\library\" -IP"D:\Clicks_git\A\analog-key-click\SW\library\HAL\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for FT90x\Packages\mikroBUS Board Definition API\Uses\" "Click_AnalogKey_FT90x.c" "__analogkey_Driver.c" "__Lib_Delays.emcl" "__Lib_System.emcl" "__Lib_Math.emcl" "__Lib_MathDouble.emcl" "__Lib_GPIO.emcl" "__Lib_CString.emcl" "__Lib_Conversions.emcl" "__Lib_ADC.emcl" "__Lib_UART.emcl" "easyft90x_v7_FT900.emcl" "Click_AnalogKey.pld"	 
+diagnostics: 0	122	Compilation Started	stdint.h
+diagnostics: 86	123	Compiled Successfully	Click_AnalogKey_FT90x.c
+hint: 53	1164	Variable 'ADC_value' has been eliminated by optimizer	Click_AnalogKey_FT90x.c
+diagnostics: 0	122	Compilation Started	stdint.h
+diagnostics: 126	123	Compiled Successfully	__analogkey_Driver.c
+hint: 323	1164	Variable 'tmp' has been eliminated by optimizer	__analogkey_Driver.c
+diagnostics: 0	127	All files Compiled in 109 ms	 
+hint: 0	1144	Used RX: 15 (47%)   Free RX: 17 (53%)	Used RX: 15 (47%)   Free RX: 17 (53%)
+hint: 0	1144	Static RAM (bytes): 277   Dynamic RAM (bytes): 65249	Static RAM (bytes): 277   Dynamic RAM (bytes): 65249
+hint: 0	1144	Used ROM (bytes): 8593 (3%)  Free ROM (bytes): 253551 (97%)	Used ROM (bytes): 8593 (3%)  Free ROM (bytes): 253551 (97%)
+diagnostics: 0	125	Project Linked Successfully	Click_AnalogKey_FT90x.mcpf9
+diagnostics: 0	128	Linked in 94 ms	 
+diagnostics: 0	129	Project 'Click_AnalogKey_FT90x.mcpf9' completed: 250 ms	 
+diagnostics: 0	103	Finished successfully: 06 dec 2018, 16:01:37	Click_AnalogKey_FT90x.mcpf9
